@@ -8,17 +8,17 @@ socketIoServer.on('connection', socket => {
   socket.on('message', message => {
     console.log('Processing Message');
     console.log(message);
-    socket.emit('log', message);
+    socket.broadcast.emit('log', message);
   });
 
   socket.on('file-save', object => {
     console.log('File has been saved');
     console.log(object);
-    socket.emit('saved', object.saved);
+    socket.broadcast.emit('file-save', object.saved);
   });
 
   socket.on('file-error', error => {
-    socket.emit('error', error);
+    socket.broadcast.emit('file-error', error);
   });
 
 });

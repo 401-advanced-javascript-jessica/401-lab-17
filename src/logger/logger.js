@@ -12,7 +12,7 @@ server.on('log', message => {
   console.log('logger', message);
 });
 
-server.on('save-file', payload => log('save-file', payload));
+server.on('file-save', payload => log('file-save', payload));
 server.on('file-error', payload => log('file-error', payload));
 
 function log(event, payload) {
